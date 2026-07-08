@@ -13,7 +13,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import B1 from "../assets/bannervideo.mp4";
 import { bannerStyles as s } from "../assets/dummyStyles";
 
-/* --- LottieLogo component (unchanged except style references) --- */
+
 const LottieLogo = ({ src, size = 56, initials = "TV" }) => {
   const containerRef = useRef(null);
   const [preview, setPreview] = useState(null);
@@ -26,7 +26,7 @@ const LottieLogo = ({ src, size = 56, initials = "TV" }) => {
     const tryPreview = async () => {
       try {
         const pngUrl = src.replace(/\.lottie(\?.*)?$/i, ".png");
-        const resp = await fetch(pngUrl, { method: "HEAD" });
+    const resp = await fetch(pngUrl, { method: "HEAD" });
         if (!cancelled && resp.ok) setPreview(pngUrl);
       } catch (e) {
         // ignore
@@ -34,7 +34,7 @@ const LottieLogo = ({ src, size = 56, initials = "TV" }) => {
         setAttemptedPreview(true);
       }
     };
-    tryPreview();
+      tryPreview();
     return () => {
       cancelled = true;
     };
@@ -56,12 +56,12 @@ const LottieLogo = ({ src, size = 56, initials = "TV" }) => {
         if (checkReady()) observer.disconnect();
       });
       observer.observe(el, { childList: true, subtree: true });
-      const t = setTimeout(() => {
+            const t = setTimeout(() => {
         if (!playerReady) setPlayerReady(true);
       }, 2500);
-      return () => {
+           return () => {
         clearTimeout(t);
-        if (observer) observer.disconnect();
+              if (observer) observer.disconnect();
       };
     }
     return () => {
@@ -69,7 +69,7 @@ const LottieLogo = ({ src, size = 56, initials = "TV" }) => {
     };
   }, [containerRef, playerReady]);
 
-  const isUrl = typeof src === "string" && src.startsWith("http");
+            const isUrl = typeof src === "string" && src.startsWith("http");
 
   return (
     <div style={s.logoWrapper(size)} className="logo-wrapper">
@@ -78,9 +78,9 @@ const LottieLogo = ({ src, size = 56, initials = "TV" }) => {
           src={preview}
           alt="preview"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ ...s.logoPreviewImg, opacity: playerReady ? 0 : 1 }}
+      style={{ ...s.logoPreviewImg, opacity: playerReady ? 0 : 1 }}
         />
-      )}
+   )}
 
       <div
         aria-hidden
@@ -89,23 +89,22 @@ const LottieLogo = ({ src, size = 56, initials = "TV" }) => {
 
       <div ref={containerRef} style={s.logoContainer(playerReady)}>
         {isUrl ? (
-          <DotLottieReact
+                <DotLottieReact
             src={src}
             autoplay
             loop
             style={{ width: "90%", height: "90%", pointerEvents: "none" }}
-          />
+              />
         ) : (
           <span style={s.logoFallbackText(size)}>{initials}</span>
         )}
-      </div>
+   </div>
 
       {!isUrl && <div style={s.logoFallbackOverlay(size)}>{initials}</div>}
     </div>
   );
 };
 
-/* ---------------- Banner component ---------------- */
 const Banner = () => {
   const canvasRef = useRef(null);
   const particlesRef = useRef([]);
@@ -133,14 +132,14 @@ const Banner = () => {
     window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("resize", onResize);
-      clearTimeout(t);
+                clearTimeout(t);
     };
   }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+              if (!canvas) return;
+               const ctx = canvas.getContext("2d");
 
     const resizeCanvas = () => {
       const dpr = window.devicePixelRatio || 1;

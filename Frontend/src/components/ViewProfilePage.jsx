@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {
-  User,
-  Mail,
-  Phone,
+import {User, Mail, Phone,
   Upload,
-  Trash2,
-  Save,
-  X,
+  Trash2, Save, X,
   Edit3,
-  FileText,
-  Loader2,
-} from "lucide-react";
+  FileText, Loader2} from "lucide-react";
 import { viewProfilePageStyles as s } from "../assets/dummyStyles";
 
-// Simple toast component
 const Toast = ({ message, type = "success", onClose }) => {
   useEffect(() => {
     const timer = setTimeout(onClose, 3000);
@@ -227,10 +219,7 @@ const ViewProfilePage = () => {
             </div>
           )}
         </div>
-
-        {/* Profile Card */}
         <div className={s.profileCard}>
-          {/* Avatar */}
           <div className={s.avatarSection}>
             <div className={s.avatar}>
               {profile.name
@@ -251,10 +240,7 @@ const ViewProfilePage = () => {
               </p>
             </div>
           </div>
-
-          {/* Fields */}
           <div className={s.formGrid}>
-            {/* Name */}
             <div className={s.fieldGroup}>
               <label className={s.fieldLabel}>
                 <User className={s.fieldIcon} />
@@ -274,8 +260,6 @@ const ViewProfilePage = () => {
                 <p className={s.displayText}>{profile.name}</p>
               )}
             </div>
-
-            {/* Email */}
             <div className={s.fieldGroup}>
               <label className={s.fieldLabel}>
                 <Mail className={s.fieldIcon} />
@@ -295,8 +279,6 @@ const ViewProfilePage = () => {
                 <p className={s.displayText}>{profile.email}</p>
               )}
             </div>
-
-            {/* Phone */}
             <div className={s.fieldGroup}>
               <label className={s.fieldLabel}>
                 <Phone className={s.fieldIcon} />
@@ -305,20 +287,16 @@ const ViewProfilePage = () => {
               {isEditing ? (
                 <input
                   type="tel"
-                  name="phone"
-                  value={profile.phone}
+            name="phone"
+      value={profile.phone}
                   onChange={handlePhoneChange}
-                  className={s.input}
-                  placeholder="1234567890 (10 digits)"
-                  maxLength={10}
-                  required
+                  className={s.input}     placeholder="1234567890 (10 digits)"
+                  maxLength={10} required
                 />
               ) : (
                 <p className={s.displayText}>{profile.phone}</p>
               )}
             </div>
-
-            {/* Resume */}
             <div className={s.resumeSection}>
               <label className={s.fieldLabel}>
                 <FileText className={s.fieldIcon} />
@@ -379,8 +357,6 @@ const ViewProfilePage = () => {
           </div>
         </div>
       </div>
-
-      {/* Toast */}
       {toast && (
         <Toast
           message={toast.message}
@@ -388,8 +364,6 @@ const ViewProfilePage = () => {
           onClose={() => setToast(null)}
         />
       )}
-
-      {/* Animations */}
       <style>{s.globalStyles}</style>
     </div>
   );
