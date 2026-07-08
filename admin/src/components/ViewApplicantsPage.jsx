@@ -24,7 +24,7 @@ useEffect(()=>{
         try {
            const token = localStorage.getItem("token");
            const res = await fetch(
-               `http://localhost:5001/api/application/${jobId}/applicants`,{
+               `https://blacki-quanta.onrender.com/api/application/${jobId}/applicants`,{
                 headers:{ Authorization: `Bearer ${token}`},
                },
            ) 
@@ -64,7 +64,7 @@ const formatDate = (dateString) => {
 
   const handleViewResume = (resumeUrl, userId) => {
     if (!resumeUrl) return;
-    const fullUrl = `http://localhost:5001/api/user/resume/${userId}`;
+    const fullUrl = `https://blacki-quanta.onrender.com/api/user/resume/${userId}`;
     const link = document.createElement("a");
     link.href = fullUrl;
     link.target = "_blank";

@@ -50,7 +50,7 @@ const CompanyPage = () => {
     const fetchCompanies = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5001/api/interview/companies",
+          "https://blacki-quanta.onrender.com/api/interview/companies",
         );
         if (response.data.success) {
           setCompanies(response.data.companies);
@@ -78,7 +78,7 @@ const CompanyPage = () => {
         const token = rawUser ? JSON.parse(rawUser).token : null;
         if (!token) return;
 
-        const res = await fetch("http://localhost:5001/api/saved", {
+        const res = await fetch("https://blacki-quanta.onrender.com/api/saved", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -107,7 +107,7 @@ const CompanyPage = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:5001/api/interview/company/${selectedCompany}`,
+          `https://blacki-quanta.onrender.com/api/interview/company/${selectedCompany}`,
         );
         if (response.data.success) {
           setInterviewQuestions(response.data.questions);
@@ -138,7 +138,7 @@ const CompanyPage = () => {
       }
 
       const res = await fetch(
-        `http://localhost:5001/api/saved/question/${id}?type=interview`,
+        `https://blacki-quanta.onrender.com/api/saved/question/${id}?type=interview`,
         {
           method: "POST",
           headers: {

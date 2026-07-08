@@ -71,7 +71,7 @@ const RolePage = () => {
   useEffect(() => {
     const fetchRoles = async () => {
       try {
-        const res = await fetch("http://localhost:5001/api/interview/roles");
+        const res = await fetch("https://blacki-quanta.onrender.com/api/interview/roles");
         const data = await res.json();
         if (data.success && data.roles) {
           setRoles(data.roles);
@@ -108,7 +108,7 @@ const RolePage = () => {
       setLoadingQuestions(true);
       try {
         const res = await fetch(
-          `http://localhost:5001/api/interview/role/${selectedRoleId}`,
+          `https://blacki-quanta.onrender.com/api/interview/role/${selectedRoleId}`,
         );
         const data = await res.json();
         if (data.success) {
@@ -130,7 +130,7 @@ const RolePage = () => {
         const token = rawUser ? JSON.parse(rawUser).token : null;
         if (!token) return;
 
-        const res = await fetch("http://localhost:5001/api/saved", {
+        const res = await fetch("https://blacki-quanta.onrender.com/api/saved", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -177,7 +177,7 @@ const RolePage = () => {
       }
 
       const res = await fetch(
-        `http://localhost:5001/api/saved/question/${id}?type=role`,
+        `https://blacki-quanta.onrender.com/api/saved/question/${id}?type=role`,
         {
           method: "POST",
           headers: {

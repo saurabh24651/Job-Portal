@@ -40,7 +40,7 @@ const handleSubmit=async(e)=>{
     }
   
     try {
-        const res=await axios.post("http://localhost:5001/api/auth/login",{
+        const res=await axios.post("https://blacki-quanta.onrender.com/api/auth/login",{
             email,
             password,
         });

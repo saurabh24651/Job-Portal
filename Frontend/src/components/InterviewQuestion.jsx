@@ -24,8 +24,8 @@ export default function InterviewQuestionsPage() {
       setLoading(true);
       try {
         const [companiesRes, rolesRes] = await Promise.all([
-          fetch("http://localhost:5001/api/interview/companies"),
-          fetch("http://localhost:5001/api/interview/roles"),
+          fetch("https://blacki-quanta.onrender.com/api/interview/companies"),
+          fetch("https://blacki-quanta.onrender.com/api/interview/roles"),
         ]);
 
         const companiesData = await companiesRes.json();

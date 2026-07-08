@@ -15,7 +15,7 @@ import {
 import axios from "axios";
 import { listCompanyQuestionStyles as s } from "../assets/dummyStyles";
 
-const API_URL = "http://localhost:5001/api/interview";
+const API_URL = "https://blacki-quanta.onrender.com/api/interview";
 
 const parseCSVText = (text) => {
   const rows = [];

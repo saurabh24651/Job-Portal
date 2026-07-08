@@ -122,7 +122,7 @@ const ContactPage = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5001/api/inquiry", {
+      const res = await fetch("https://blacki-quanta.onrender.com/api/inquiry", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

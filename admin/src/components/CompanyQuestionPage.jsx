@@ -255,7 +255,7 @@ const handleSubmit =async (e)=>{
     
       const token = localStorage.getItem("token");
       const response= await axios.post(
-        "http://localhost:5001/api/interview/companies",
+        "https://blacki-quanta.onrender.com/api/interview/companies",
         formDataToSend,
         {
           headers:{

@@ -151,7 +151,7 @@ const FindJobPage = () => {
         return;
       }
 
-      const res = await fetch(`http://localhost:5001/api/saved/job/${jobId}`, {
+      const res = await fetch(`https://blacki-quanta.onrender.com/api/saved/job/${jobId}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -221,7 +221,7 @@ const FindJobPage = () => {
         return;
       }
 
-      const res = await fetch("http://localhost:5001/api/user/profile", {
+      const res = await fetch("https://blacki-quanta.onrender.com/api/user/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -286,7 +286,7 @@ const FindJobPage = () => {
       }
 
       const res = await fetch(
-        `http://localhost:5001/api/application/apply/${confirmToast.jobId}`,
+        `https://blacki-quanta.onrender.com/api/application/apply/${confirmToast.jobId}`,
         {
           method: "POST",
           headers: {
@@ -332,7 +332,7 @@ const FindJobPage = () => {
         const token = rawUser ? JSON.parse(rawUser).token : null;
         if (!token) return;
 
-        const res = await fetch("http://localhost:5001/api/application/user", {
+        const res = await fetch("https://blacki-quanta.onrender.com/api/application/user", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -357,7 +357,7 @@ const FindJobPage = () => {
         const token = rawUser ? JSON.parse(rawUser).token : null;
         if (!token) return;
 
-        const res = await fetch("http://localhost:5001/api/saved", {
+        const res = await fetch("https://blacki-quanta.onrender.com/api/saved", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -413,7 +413,7 @@ const FindJobPage = () => {
       if (filters.maxSalary) params.append("maxSalary", filters.maxSalary);
 
       const res = await fetch(
-        `http://localhost:5001/api/job?${params.toString()}`,
+        `https://blacki-quanta.onrender.com/api/job?${params.toString()}`,
       );
       const data = await res.json();
 
@@ -427,7 +427,7 @@ const FindJobPage = () => {
               const path = job.companyLogo.startsWith("/")
                 ? job.companyLogo
                 : `/${job.companyLogo}`;
-              logoSrc = `http://localhost:5000${path
+              logoSrc = `https://blacki-quanta.onrender.com${path
                 .split("/")
                 .map((segment) => encodeURIComponent(segment))
                 .join("/")}`;
@@ -615,7 +615,7 @@ const FindJobPage = () => {
   const renderLogo = (job) => {
     const logoUrl = job.logo;
     const isBroken =
-      imgErrors[job.id] || !logoUrl || logoUrl === "http://localhost:5001";
+      imgErrors[job.id] || !logoUrl || logoUrl === "https://blacki-quanta.onrender.com";
 
     const initials = job.company?.charAt(0) || "?";
     const colors = [

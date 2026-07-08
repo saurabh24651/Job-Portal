@@ -20,7 +20,7 @@ connectDB();
 //MIDDLEWARE
 app.use(express.json());
 app.use(cors({
-    origin:["http://localhost:5001","http://localhost:5173","http://localhost:5174"],
+    origin:["https://blacki-quanta.onrender.com","http://localhost:5173","http://localhost:5174"],
     credentials:true
 }));
 app.use('/uploads',express.static("uploads"));
@@ -40,5 +40,5 @@ app.get('/',(req,res)=>{
     res.send("API WORKING")
 });
 app.listen(PORT,()=>{
-    console.log(`Server Started on http://localhost:${PORT}`)
+    console.log(`Server Started on https://blacki-quanta.onrender.com`)
 });

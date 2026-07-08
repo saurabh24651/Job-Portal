@@ -32,7 +32,7 @@ useEffect(()=>{
             }
 
  //to fetch stats         
-        const statsRes=await fetch("http://localhost:5001/api/job/admin/stats",
+        const statsRes=await fetch("https://blacki-quanta.onrender.com/api/job/admin/stats",
             {
                 headers:{Authorization: `Bearer ${token}`},
             }
@@ -44,7 +44,7 @@ useEffect(()=>{
 
         //to fetch the jobs
         const jobRes=await fetch(
-            "http://localhost:5001/api/job/admin/jobs",
+            "https://blacki-quanta.onrender.com/api/job/admin/jobs",
             {headers: {Authorization:`Bearer ${token}`}},
         );
         const jobsData=await jobRes.json();
@@ -57,7 +57,7 @@ useEffect(()=>{
             category: j.category,
             logo: j.companyLogo?.startsWith("http")
               ? j.companyLogo
-              : `http://localhost:5001${j.companyLogo || ""}`,
+              : `https://blacki-quanta.onrender.com${j.companyLogo || ""}`,
             applicants: j.applicantsCount || 0,
             status: j.status || "active",
           }));
@@ -97,7 +97,7 @@ const handleConfirmClose=async()=>{
 
     try {
         const token=localStorage.getItem("token");
-        const res=await fetch (`http://localhost:5001/api/job/${jobId}/close`,{
+        const res=await fetch (`https://blacki-quanta.onrender.com/api/job/${jobId}/close`,{
          method:"PATCH",
          headers:{
             Authorization:`Bearer ${token}`,
@@ -110,7 +110,7 @@ const handleConfirmClose=async()=>{
             setToast ({message:"Job closed successfully!",type:"success"});
 //refresh the stats
           const statsRes=await fetch(
-            "http://localhost:5001/api/job/admin/stats",{
+            "https://blacki-quanta.onrender.com/api/job/admin/stats",{
                 headers:{Authorization: `Bearer ${token}`},
             }   
             )
@@ -118,7 +118,7 @@ const handleConfirmClose=async()=>{
          if(statsData.success) setDashboardStats(statsData.stats);
 
          const jobRes=await fetch(
-            "http://localhost:5001/api/job/admin/jobs",{
+            "https://blacki-quanta.onrender.com/api/job/admin/jobs",{
                 headers:{Authorization: `Bearer ${token}`}},
          );
          const jobsData = await jobRes.json(); 
@@ -131,7 +131,7 @@ const handleConfirmClose=async()=>{
             category: j.category,
             logo: j.companyLogo?.startsWith("http")
               ? j.companyLogo
-              : `http://localhost:5001${j.companyLogo || ""}`,
+              : `https://blacki-quanta.onrender.com${j.companyLogo || ""}`,
             applicants: j.applicantsCount || 0,
             status: j.status || "active",
           }));

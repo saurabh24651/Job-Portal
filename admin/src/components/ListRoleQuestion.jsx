@@ -150,7 +150,7 @@ const ListRoleQuestion = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:5001/api/interview/roles",
+        "https://blacki-quanta.onrender.com/api/interview/roles",
       );
       if (response.data.success) {
         setRoles(response.data.roles);
@@ -325,7 +325,7 @@ const ListRoleQuestion = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:5001/api/interview/roles/${id}`,
+        `https://blacki-quanta.onrender.com/api/interview/roles/${id}`,
         formData,
         {
           headers: {
@@ -372,7 +372,7 @@ const ListRoleQuestion = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.delete(
-        `http://localhost:5001/api/interview/roles/${deleteRoleId}`,
+        `https://blacki-quanta.onrender.com/api/interview/roles/${deleteRoleId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

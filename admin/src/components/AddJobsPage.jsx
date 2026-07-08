@@ -379,7 +379,7 @@ formDataToSend.append("roleName", formData.roleName);
 const token = localStorage.getItem("token");
 
 const response=await axios.post(
-    "http://localhost:5001/api/job",
+    "https://blacki-quanta.onrender.com/api/job",
     formDataToSend,{
         headers:{
             "Content-Type":"multipart/form-data",

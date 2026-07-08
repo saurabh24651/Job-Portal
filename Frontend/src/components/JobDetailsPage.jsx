@@ -35,7 +35,7 @@ const JobDetailPage = () => {
     const fetchJob = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:5001/api/job/${id}`);
+        const res = await fetch(`https://blacki-quanta.onrender.com/api/job/${id}`);
         const data = await res.json();
         if (data.success) {
           const bJob = data.job;
@@ -52,7 +52,7 @@ const JobDetailPage = () => {
             jobType: bJob.jobType,
             logo: bJob.companyLogo?.startsWith("http")
               ? bJob.companyLogo
-              : `http://localhost:5000${bJob.companyLogo || ""}`,
+              : `https://blacki-quanta.onrender.com${bJob.companyLogo || ""}`,
             datePosted: bJob.postDate || bJob.createdAt,
             overview: bJob.overview,
             responsibilities: bJob.responsibilities,
@@ -199,7 +199,7 @@ const JobDetailPage = () => {
         const token = rawUser ? JSON.parse(rawUser).token : null;
         if (!token) return;
 
-        const res = await fetch("http://localhost:5001/api/application/user", {
+        const res = await fetch("https://blacki-quanta.onrender.com/api/application/user", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -261,7 +261,7 @@ const JobDetailPage = () => {
         return;
       }
 
-      const res = await fetch("http://localhost:5001/api/user/profile", {
+      const res = await fetch("https://blacki-quanta.onrender.com/api/user/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -317,7 +317,7 @@ const JobDetailPage = () => {
       }
 
       const res = await fetch(
-        `http://localhost:5001/api/application/apply/${confirmToast.jobId}`,
+        `https://blacki-quanta.onrender.com/api/application/apply/${confirmToast.jobId}`,
         {
           method: "POST",
           headers: {

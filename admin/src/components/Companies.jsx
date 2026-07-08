@@ -20,7 +20,7 @@ useEffect(()=>{
 const fetchCompanies=async()=>{
     try{
         const token=localStorage.getItem("token");
-        const res=await axios.get("http://localhost:5001/api/company/",
+        const res=await axios.get("https://blacki-quanta.onrender.com/api/company/",
         {
                 headers:{Authorization: `Bearer ${token}`},
             });
@@ -90,7 +90,7 @@ try {
    formData.append("website",website.trim());
 
    const res = await axios.post(
-   "http://localhost:5001/api/company/",
+   "https://blacki-quanta.onrender.com/api/company/",
    formData,
    {
     headers:{Authorization: `Bearer ${token}`}, 
@@ -128,7 +128,7 @@ const requestDeleteCompany =(companyId)=>{
         try {
             const token=localStorage.getItem("token");
             await axios.delete(
-                `http://localhost:5001/api/company/${pendingDeleteId}`,
+                `https://blacki-quanta.onrender.com/api/company/${pendingDeleteId}`,
                 {
                      headers:{Authorization: `Bearer ${token}`},
                 }
