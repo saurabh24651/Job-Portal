@@ -11,7 +11,7 @@ import interviewRouter from './routes/interview.routes.js';
 import savedRouter from './routes/saved.routes.js';
 import inquiryRouter from './routes/inquiry.routes.js';
 
-const PORT=5001;
+// const PORT=5001;
 const app=express();
 
 //DB
@@ -20,7 +20,7 @@ connectDB();
 //MIDDLEWARE
 app.use(express.json());
 app.use(cors({
-    origin:["https://blacki-quanta.onrender.com","http://localhost:5173","http://localhost:5174"],
+    origin:["https://blacki-quanta.onrender.com","https://job-portal-dun-ten.vercel.app/","http://localhost:5174"],
     credentials:true
 }));
 app.use('/uploads',express.static("uploads"));
