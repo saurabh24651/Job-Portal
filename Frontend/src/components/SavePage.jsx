@@ -820,7 +820,9 @@ const SavePage = () => {
         </div>
 
         <div className={s.techStackWrapper}>
-          {(job.techStack || []).slice(0, 6).map((tech, i) => (
+          {Array.isArray(job.techStack)
+  ? job.techStack.slice(0, 6)
+  : [].map((tech, i) => (
             <span key={i} className={s.techStackTag}>
               {tech}
             </span>
