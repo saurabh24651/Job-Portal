@@ -154,7 +154,7 @@ const Footer = () => {
           />
           <span className={s.designedByText}>Designed by</span>
           <a
-            href="httpshttps://www.linkedin.com/in/saurabh-singh-14a545323?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+            href="httpshttps://www.linkedin.com/in/saurabh-singh-14a545323"
             target="_blank"
             rel="noopener noreferrer"
             className={s.designedByLink}
