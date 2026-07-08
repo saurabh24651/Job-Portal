@@ -204,9 +204,9 @@ const ContactPage = () => {
                         <div>
                           <p className={s.contactLabel}>Visit us</p>
                           <p className={s.contactValue}>
-                            123 Business Ave, Suite 100
+                           1772 Nodia, 
                             <br />
-                            San Francisco, CA 94107
+                            U.P., India
                           </p>
                         </div>
                       </div>
