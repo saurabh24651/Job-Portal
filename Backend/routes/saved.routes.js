@@ -9,5 +9,6 @@ router.use(authMiddleware);
 router.get('/', getSavedItems);
 router.post('/job/:jobId', toggleSaveJob);
 router.post('/question/:questionId', toggleSaveQuestion);
+router.get("/", authMiddleware, getSavedItems);
 
 export default router;
