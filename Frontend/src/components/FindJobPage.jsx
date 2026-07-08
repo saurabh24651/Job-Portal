@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import {
-  Search,
+import {Search,
   MapPin,
   Briefcase,
   Filter,
@@ -14,8 +13,7 @@ import {
   BadgeIndianRupee,
   BriefcaseBusiness,
   Bookmark,
-  Eye,
-} from "lucide-react";
+  Eye,} from "lucide-react";
 import Toast from "./Toast";
 import { findJobPageStyles as s } from "../assets/dummyStyles";
 

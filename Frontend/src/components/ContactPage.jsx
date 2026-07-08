@@ -1,14 +1,5 @@
-// ContactPage.jsx
 import React, { useRef, useState } from "react";
-import {
-  Mail,
-  User,
-  Phone,
-  MapPin,
-  Briefcase,
-  MessageSquare,
-  CircleArrowRight,
-} from "lucide-react";
+import {Mail,User,Phone,MapPin,Briefcase,MessageSquare,CircleArrowRight} from "lucide-react";
 import { contactPageStyles as s } from "../assets/dummyStyles";
 
 const ContactPage = () => {
@@ -23,7 +14,7 @@ const ContactPage = () => {
   const [toast, setToast] = useState(null);
   const formRef = useRef(null);
 
-  // Toast component (uses imported styles)
+  // toast component 
   const Toast = ({ message, type = "success", onClose }) => {
     const [isExiting, setIsExiting] = useState(false);
     const handleClose = () => {
@@ -33,7 +24,7 @@ const ContactPage = () => {
     React.useEffect(() => {
       const t = setTimeout(handleClose, 3000);
       return () => clearTimeout(t);
-    }, []); // eslint-disable-line
+    }, []); 
 
     const borderClass =
       type === "success" ? "border-green-500" : "border-red-500";
@@ -163,7 +154,6 @@ const ContactPage = () => {
 
   return (
     <div className={s.pageContainer}>
-      {/* Toast */}
       {toast && (
         <Toast
           message={toast.message}
@@ -172,9 +162,8 @@ const ContactPage = () => {
         />
       )}
 
-      {/* Main container */}
+      {/* main container */}
       <div className={s.mainWrapper}>
-        {/* Header */}
         <div className={s.header}>
           <h1 className={s.headerTitle}>Get In Touch</h1>
           <p className={s.headerSubtitle}>
@@ -183,12 +172,12 @@ const ContactPage = () => {
           </p>
         </div>
 
-        {/* Centered form card */}
+        {/* centered form card */}
         <div className={s.formCardContainer}>
           <div className={s.formCardInner}>
             <div className={s.formCard}>
               <div className={s.grid}>
-                {/* Left side - Contact Info */}
+                {/* left side - contact info */}
                 <div className={s.leftPanel}>
                   <div>
                     <h3 className={s.leftPanelTitle}>Let's Talk</h3>
@@ -242,7 +231,7 @@ const ContactPage = () => {
                   </div>
                 </div>
 
-                {/* Right side - Form */}
+                {/* right side - form */}
                 <div className={s.rightPanel}>
                   <h2 className={s.rightPanelTitle}>
                     <Briefcase className={s.briefcaseIcon} />
@@ -255,7 +244,7 @@ const ContactPage = () => {
                     className={s.form}
                   >
                     <div className={s.formGrid}>
-                      {/* Full Name */}
+                      {/* full name */}
                       <div className={s.fieldGroup}>
                         <label className={s.fieldLabel}>Full name</label>
                         <div className={s.inputWrapper}>
@@ -275,7 +264,7 @@ const ContactPage = () => {
                         </div>
                       </div>
 
-                      {/* Email */}
+                      {/* email */}
                       <div className={s.fieldGroup}>
                         <label className={s.fieldLabel}>Email</label>
                         <div className={s.inputWrapper}>
@@ -319,7 +308,7 @@ const ContactPage = () => {
                         </div>
                       </div>
 
-                      {/* Subject */}
+                      {/* subject */}
                       <div className={s.fieldGroup}>
                         <label className={s.fieldLabel}>Subject</label>
                         <div className={s.inputWrapper}>
@@ -340,7 +329,7 @@ const ContactPage = () => {
                       </div>
                     </div>
 
-                    {/* Message */}
+                    {/* message */}
                     <div className={s.fieldGroup}>
                       <label className={s.fieldLabel}>Message</label>
                       <div className={s.textareaWrapper}>
@@ -360,7 +349,7 @@ const ContactPage = () => {
                       </div>
                     </div>
 
-                    {/* Submit Button */}
+                  
                     <div className={s.submitButtonContainer}>
                       <button
                         type="submit"
@@ -383,7 +372,6 @@ const ContactPage = () => {
         </div>
       </div>
 
-      {/* Global Styles */}
       <style>{s.globalStyles}</style>
     </div>
   );

@@ -1,15 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
-import {
-  Building2,
-  Calendar,
-  Lightbulb,
-  ChevronDown,
-  ChevronUp,
-  Bookmark,
-  CircleDashed,
-  X,
-} from "lucide-react";
+import {Building2,Calendar, Lightbulb, ChevronDown,ChevronUp,Bookmark,CircleDashed,X,} from "lucide-react";
 import Toast from "./Toast";
 import { companyPageStyles as s } from "../assets/dummyStyles";
 import axios from "axios";

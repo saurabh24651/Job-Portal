@@ -1,20 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import {
-  Briefcase,
-  Search,
-  Home,
-  Bookmark,
-  Menu,
-  X,
-  LogIn,
-  UserCog,
-  LogOut,
+import {Briefcase,Search,Home,Bookmark,
+  Menu,X,LogIn,
+  UserCog,LogOut,
   ChevronDown,
   ChevronUp,
-  User,
-  UserPen,
-} from "lucide-react";
+  User,UserPen,} from "lucide-react";
 import logo from "../assets/logo.png";
 import { navbarStyles as s } from "../assets/dummyStyles";
 
@@ -144,7 +135,6 @@ const Navbar = () => {
     <nav className={s.navbar(isScrolled)}>
       <div className={s.container}>
         <div className={s.flexContainer}>
-          {/* Logo */}
           <div className={s.logoSection}>
             <div className={s.logoWrapper}>
               <Link to="/" aria-label="JobPortal home">
@@ -163,7 +153,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
           <div className={s.desktopNav}>
             {navItems.map((item) => (
               <div
@@ -185,8 +174,6 @@ const Navbar = () => {
               </div>
             ))}
           </div>
-
-          {/* Desktop Right Actions */}
           <div className={s.desktopActions}>
             <div className={s.actionInner}>
               {!user ? (
@@ -243,8 +230,6 @@ const Navbar = () => {
               )}
             </div>
           </div>
-
-          {/* Mobile Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={s.mobileToggle}
@@ -259,7 +244,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         <div className={s.mobileMenu(isMobileMenuOpen)}>
           <div className={s.mobileMenuCard}>
             <div className={s.mobileMenuSpace}>
@@ -333,7 +317,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Global Styles */}
       <style>{s.globalStyles}</style>
     </nav>
   );

@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
-import {
-  Briefcase,
-  Building2,
+import {Briefcase,Building2,
   CheckCircle2,
-  Bookmark,
-  ChevronRight,
+  Bookmark,ChevronRight,
   Award,
-  Dot,
-  X,
-} from "lucide-react";
+  Dot,X} from "lucide-react";
 import Toast from "./Toast";
 import { rolePageStyles as s } from "../assets/dummyStyles";
 
@@ -222,7 +217,6 @@ const RolePage = () => {
   return (
     <div className={s.container}>
       <div className={s.innerContainer}>
-        {/* Header */}
         <div className={s.header}>
           <h1 className={s.headerTitle}>
             <span className={s.headerSpan}>Role-Ready</span> Interviews
@@ -233,7 +227,6 @@ const RolePage = () => {
           </p>
         </div>
 
-        {/* Role Selector */}
         <div className={s.roleSelector}>
           <div className={s.roleButtonsWrapper}>
             {loadingRoles ? (
@@ -273,7 +266,6 @@ const RolePage = () => {
           </div>
         </div>
 
-        {/* Questions */}
         {loadingQuestions ? (
           <div className={s.questionsSkeletonGrid}>
             {[1, 2, 3, 4].map((i) => (
@@ -301,18 +293,15 @@ const RolePage = () => {
                     <Bookmark className={s.saveIcon} />
                   </button>
 
-                  {/* Question */}
                   <h3 className={s.questionTitle}>
                     {index + 1}. {q.question.replace(/^\d+\.\s*/, "")}
                   </h3>
 
-                  {/* Answer */}
                   <div className={s.answerSection}>
                     <span className={s.answerLabel}>Answer: </span>
                     {q.answer}
                   </div>
 
-                  {/* Key Points */}
                   {q.keyPoints && q.keyPoints.length > 0 && (
                     <div className={s.keyPointsSection}>
                       <div className={s.keyPointsLabel}>KEY POINTS</div>
@@ -327,7 +316,6 @@ const RolePage = () => {
                     </div>
                   )}
 
-                  {/* ASKED AT SECTION */}
                   <div className={s.askedAtSection}>
                     <div className={s.askedAtLabel}>
                       <Building2 className={s.askedAtIcon} />

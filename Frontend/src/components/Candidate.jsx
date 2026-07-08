@@ -1,20 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  GraduationCap,
-  Globe,
-  Briefcase,
-  Users,
-  ArrowRight,
-  Mail,
-  Target,
-  Zap,
-  CheckCircle,
-  Lightbulb,
-  Globe as World,
-  Award,
-  Users as Team,
-  Clock,
-  Star,
+import { GraduationCap,Globe,Briefcase,Users, ArrowRight,Mail,Target, Zap,CheckCircle,
+  Lightbulb,Globe as World,Award,Users as Team, Clock,Star,
 } from "lucide-react";
 import { candidateStyles as s } from "../assets/dummyStyles";
 
@@ -123,7 +109,7 @@ const Candidate = () => {
   return (
     <div className={s.container}>
       <div className={s.innerContainer}>
-        {/* Header */}
+        {/* header */}
         <header className={s.header}>
           <div className={s.headerGlowWrapper}>
             <div className={s.headerGlow}>
@@ -270,7 +256,7 @@ const Candidate = () => {
                   </div>
                 </div>
 
-                {/* Edge border */}
+                {/* edge border */}
                 <div className={s.cardBorder} />
               </div>
             );
@@ -304,7 +290,7 @@ const Candidate = () => {
         </footer>
       </div>
 
-      {/* Styles */}
+      {/* styles */}
       <style>{s.globalStyles}</style>
     </div>
   );

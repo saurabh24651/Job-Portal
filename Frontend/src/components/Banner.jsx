@@ -1,14 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Briefcase,
-  ArrowRight,
-  PlayCircle,
-  ChevronRight,
-  Backpack,
-  X as CloseIcon,
-  CircleChevronRight,
-} from "lucide-react";
+import {Briefcase,ArrowRight,PlayCircle,ChevronRight,Backpack,X as CloseIcon, CircleChevronRight,} from "lucide-react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import B1 from "../assets/bannervideo.mp4";
 import { bannerStyles as s } from "../assets/dummyStyles";
@@ -266,9 +258,9 @@ const Banner = () => {
     }
   }, [showVideo]);
 
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape" && showVideo) setShowVideo(false);
+           useEffect(() => {
+             const onKey = (e) => {
+               if (e.key === "Escape" && showVideo) setShowVideo(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -348,7 +340,7 @@ const Banner = () => {
               </div>
             </div>
 
-            {/* Right Column */}
+            {/* right column */}
             <div className={s.rightColumn}>
               <div
                 className={`${s.cardContainer} ${
@@ -423,7 +415,7 @@ const Banner = () => {
         </div>
       </div>
 
-      {/* Video Modal */}
+      {/* video */}
       {showVideo && (
         <div
           role="dialog"
@@ -464,7 +456,7 @@ const Banner = () => {
         </div>
       )}
 
-      {/* SVG Wave */}
+      {/* wave */}
       <div className={s.waveContainer}>
         <svg
           className={s.waveSvg}
@@ -478,7 +470,7 @@ const Banner = () => {
         </svg>
       </div>
 
-      {/* Global Styles */}
+      {/* global styles */}
       <style>{s.globalStyles}</style>
     </div>
   );

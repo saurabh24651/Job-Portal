@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import {
-  MapPin,
+import {MapPin,
   Briefcase,
   Calendar,
   Building,
   ExternalLink,
-  Users,
-  BadgeIndianRupee,
+  Users,BadgeIndianRupee,
   ArrowLeft,
   Bookmark,
-  X,
-} from "lucide-react";
+  X} from "lucide-react";
 import Toast from "./Toast";
 import { jobDetailPageStyles as s } from "../assets/dummyStyles";
 

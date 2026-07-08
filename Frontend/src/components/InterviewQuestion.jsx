@@ -1,10 +1,8 @@
-// InterviewQuestionsPage.jsx
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, CircleArrowOutUpRight } from "lucide-react";
 import { interviewQuestionsStyles as s } from "../assets/dummyStyles";
 
-/* ---------- small helper ---------- */
 const slugify = (str) =>
   str
     .toString()
@@ -103,7 +101,6 @@ export default function InterviewQuestionsPage() {
   );
 }
 
-/* ---------- Company card ---------- */
 function CompanyCard({ company }) {
   const [imgError, setImgError] = useState(false);
   const initials = company.companyName
@@ -160,7 +157,6 @@ function CompanyCard({ company }) {
   );
 }
 
-/* ---------- Role card ---------- */
 function RoleCard({ role }) {
   const [imgError, setImgError] = useState(false);
   const initials = role.roleName

@@ -1,23 +1,11 @@
 // src/pages/SavePage.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import {
-  Bookmark,
-  Calendar,
-  Lightbulb,
-  CircleDashed,
-  CheckCircle2,
-  Building2,
-  Award,
-  Dot,
-  Users,
-  MapPin,
-  BadgeIndianRupee,
-  Briefcase,
+import {Bookmark, Calendar, Lightbulb, CircleDashed, CheckCircle2, Building2, Award, Dot,
+  Users, MapPin,
+  BadgeIndianRupee,Briefcase,
   ExternalLink,
-  X,
-  Eye,
-} from "lucide-react";
+  X,Eye} from "lucide-react";
 import Toast from "./Toast";
 import { savePageStyles as s } from "../assets/dummyStyles";
 

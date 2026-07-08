@@ -1,22 +1,18 @@
 // LoginPage.jsx
 import React, { useEffect, useState } from "react";
-import {
-  Mail,
-  Lock,
+import {Mail,Lock,
   LogIn,
   ArrowLeft,
-  X,
-  CheckCircle,
+  X,CheckCircle,
   Eye,
-  EyeOff,
-} from "lucide-react";
+  EyeOff} from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../utils/api";
 import { loginPageStyles as s } from "../assets/dummyStyles";
 
 const STORAGE_KEY = "jobportal_user";
 
-// Animated Toast Component
+
 const Toast = ({ message, type = "success", onClose }) => {
   const [isExiting, setIsExiting] = useState(false);
 
@@ -92,7 +88,6 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showResetPassword, setShowResetPassword] = useState(false);
 
-  // Inject global styles
   useEffect(() => {
     const style = document.createElement("style");
     style.innerHTML = s.globalStyles;

@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import {
-  User,
-  Mail,
-  Lock,
-  ArrowLeft,
-  CheckCircle,
-  X,
-  Eye,
-  EyeOff,
-  ShieldCheck,
-} from "lucide-react";
+import {User, Mail, Lock, ArrowLeft, CheckCircle, X, Eye, EyeOff, ShieldCheck} from "lucide-react";
 import API from "../utils/api";
 import { signUpPageStyles as s } from "../assets/dummyStyles";
 
 const STORAGE_KEY = "jobportal_user";
 
-// Reusable Toast Component
+
 const Toast = ({ message, type = "success", onClose }) => {
   const [isExiting, setIsExiting] = useState(false);
 
@@ -28,7 +18,7 @@ const Toast = ({ message, type = "success", onClose }) => {
   useEffect(() => {
     const timer = setTimeout(handleClose, 3000);
     return () => clearTimeout(timer);
-  }, []); // eslint-disable-line
+  }, []); 
 
   const borderClass =
     type === "success" ? s.toast.borderSuccess : s.toast.borderError;
@@ -58,7 +48,7 @@ const Toast = ({ message, type = "success", onClose }) => {
 const SignUpPage = () => {
   const navigate = useNavigate();
 
-  // Form state
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -72,7 +62,6 @@ const SignUpPage = () => {
   const [toast, setToast] = useState(null);
   const [passwordStrength, setPasswordStrength] = useState(0);
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -87,7 +76,6 @@ const SignUpPage = () => {
     }
   };
 
-  // Validation
   const validateForm = () => {
     if (!formData.name || !formData.email || !formData.password) {
       setToast({ message: "All fields are required", type: "error" });
@@ -107,7 +95,7 @@ const SignUpPage = () => {
     return true;
   };
 
-  // Register handler
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -115,7 +103,7 @@ const SignUpPage = () => {
       setIsLoading(true);
       const res = await API.post("/auth/register", formData);
       setToast({ message: res.data.message, type: "success" });
-      setIsVerifying(true); // Switch to OTP UI
+      setIsVerifying(true); 
     } catch (err) {
       setToast({
         message: err.response?.data?.message || "Signup failed",
@@ -126,7 +114,6 @@ const SignUpPage = () => {
     }
   };
 
-  // OTP Verification handler
   const handleVerifyOTP = async (e) => {
     e.preventDefault();
     if (!otp || otp.length !== 6) {

@@ -18,10 +18,10 @@ const Career = () => {
     fetchCompanies();
   }, []);
 
-  // Duplicate for seamless scroll
+  // duplicate for seamless scroll
   const duplicatedCompanies = [...companies, ...companies];
 
-  // Fallback placeholder generator (image with initials)
+  // fallback placeholder generator 
   const placeholder = (name) =>
     `https://via.placeholder.com/560x320?text=${encodeURIComponent(
       (name || "Co").split(" ")[0].slice(0, 2).toUpperCase(),
@@ -44,7 +44,7 @@ const Career = () => {
           </p>
         </div>
 
-        {/* First Row - Right to Left */}
+        {/* first row - right to left */}
         <div className={s.rowContainer}>
           <div className={s.scrollRowRightToLeft}>
             {duplicatedCompanies.map((company, index) => {
@@ -123,7 +123,7 @@ const Career = () => {
         </div>
       </div>
 
-      {/* Global Styles */}
+      {/* global tyles */}
       <style>{s.globalStyles}</style>
     </div>
   );

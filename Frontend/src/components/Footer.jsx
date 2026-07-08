@@ -140,12 +140,9 @@ const Footer = () => {
               />
             </div>
           </div>
-        </div>
-
-        {/* Divider */}
+        </div>   
         <div className={s.divider} />
 
-        {/* Bottom Footer */}
         <div className={s.bottomFooter}>
           <img
             src={Companylogo}
@@ -167,14 +164,12 @@ const Footer = () => {
   );
 };
 
-// Social Icon Component
 const SocialIcon = ({ href, icon, label }) => (
   <a href={href} aria-label={label} className={s.socialIcon}>
     {icon}
   </a>
 );
 
-// Footer Link Component
 const FooterLink = ({ href, children, icon }) => (
   <li>
     <a href={href} className={s.footerLinkItem}>
@@ -184,7 +179,6 @@ const FooterLink = ({ href, children, icon }) => (
   </li>
 );
 
-// Contact Item Component
 const ContactItem = ({ icon, text, href }) => (
   <div className={s.contactItemContainer}>
     <div className={s.contactIconWrapper}>{icon}</div>
@@ -198,7 +192,6 @@ const ContactItem = ({ icon, text, href }) => (
   </div>
 );
 
-// Stat Item Component (kept for compatibility; not used in layout)
 const StatItem = ({ number, label }) => (
   <div className={s.statItem}>
     <div className={s.statNumber}>{number}</div>
