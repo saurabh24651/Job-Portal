@@ -132,22 +132,43 @@ const SavePage = () => {
       if (companiesData.success) setCompaniesState(companiesData.companies);
 
       if (savedData.success) {
-        setSavedItems({
-          jobs: savedData.savedJobs,
-          interviewQuestions: savedData.savedInterviewQuestions,
-          roleQuestions: savedData.savedRoleQuestions,
-        });
+  const jobs = Array.isArray(savedData.savedJobs)
+    ? savedData.savedJobs.filter(Boolean)
+    : [];
 
-        localStorage.setItem(
-          STORAGE_JOBS_KEY,
-          JSON.stringify(savedData.savedJobs.map((j) => j._id)),
-        );
-        const qIds = [
-          ...savedData.savedInterviewQuestions.map((q) => `company:${q._id}`),
-          ...savedData.savedRoleQuestions.map((q) => `role:${q._id}`),
-        ];
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(qIds));
-      }
+  const interviewQuestions = Array.isArray(savedData.savedInterviewQuestions)
+    ? savedData.savedInterviewQuestions.filter(Boolean)
+    : [];
+
+  const roleQuestions = Array.isArray(savedData.savedRoleQuestions)
+    ? savedData.savedRoleQuestions.filter(Boolean)
+    : [];
+
+  setSavedItems({
+    jobs,
+    interviewQuestions,
+    roleQuestions,
+  });
+
+  localStorage.setItem(
+    STORAGE_JOBS_KEY,
+    JSON.stringify(
+      jobs.map((job) => job?._id).filter(Boolean)
+    )
+  );
+
+  const qIds = [
+    ...interviewQuestions
+      .map((q) => q?._id && `company:${q._id}`)
+      .filter(Boolean),
+
+    ...roleQuestions
+      .map((q) => q?._id && `role:${q._id}`)
+      .filter(Boolean),
+  ];
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(qIds));
+}
     } catch (error) {
       console.error("Error fetching saved items:", error);
     } finally {
@@ -161,12 +182,12 @@ const SavePage = () => {
 
   const availableRoles = useMemo(() => {
     const rolesMap = new Map();
-    savedItems.roleQuestions.forEach((q) => {
-      if (q.roleId && q.roleId._id) {
-        rolesMap.set(String(q.roleId._id), q.roleId.roleName);
-      }
-    });
-    savedItems.jobs.forEach((j) => {
+    (savedItems.roleQuestions || []).forEach((q) => {
+  if (q?.roleId?._id) {
+    rolesMap.set(String(q.roleId._id), q.roleId.roleName);
+  }
+});
+    (savedItems.jobs || []).forEach((j) => {
       const found = roles.find((r) => r.roleName === j.roleName);
       if (found) rolesMap.set(String(found._id), found.roleName);
     });
@@ -178,12 +199,12 @@ const SavePage = () => {
 
   const availableCompanies = useMemo(() => {
     const companiesMap = new Map();
-    savedItems.interviewQuestions.forEach((q) => {
+   (savedItems.interviewQuestions || []).forEach((q) => {
       if (q.company && q.company._id) {
         companiesMap.set(String(q.company._id), q.company.companyName);
       }
     });
-    savedItems.jobs.forEach((j) => {
+    (savedItems.jobs || []).forEach((j) => {
       const found = companiesState.find((c) => c.companyName === j.companyName);
       if (found) companiesMap.set(String(found._id), found.companyName);
     });
@@ -263,7 +284,7 @@ const SavePage = () => {
   const unifiedSaved = useMemo(() => {
     const results = [];
 
-    savedItems.interviewQuestions.forEach((q) => {
+    (savedItems.interviewQuestions || []).forEach((q) => {
       results.push({
         source: "company",
         id: q._id,
@@ -279,7 +300,7 @@ const SavePage = () => {
       });
     });
 
-    savedItems.roleQuestions.forEach((q) => {
+    (savedItems.roleQuestions || []).forEach((q) => {
       results.push({
         source: "role",
         id: q._id,
@@ -304,7 +325,7 @@ const SavePage = () => {
   }, [savedItems]);
 
   const jobSavedItems = useMemo(() => {
-    return savedItems.jobs.map((job) => ({
+   return (savedItems.jobs || []).map((job) => ({
       source: "job",
       id: job._id,
       job: {
@@ -560,7 +581,7 @@ const SavePage = () => {
     const answerParagraph = q.answerParagraph || q.answer || "";
     const points = q.keyPoints || [];
     const roleName = q.roleId || "";
-    const cleanedQuestion = q.question.replace(/^\d+\.\s*/, "");
+    const cleanedQuestion = (q.question || "").replace(/^\d+\.\s*/, "");
 
     return (
       <div
@@ -660,7 +681,7 @@ const SavePage = () => {
     const isSaved = true;
     const main = q.answer || q.answerParagraph || "";
     const points = q.keyPoints || [];
-    const cleanedQuestion = q.question.replace(/^\d+\.\s*/, "");
+    const cleanedQuestion = (q.question || "").replace(/^\d+\.\s*/, "");
 
     const companyNames = (item.companies || [])
       .map((c) => {

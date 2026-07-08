@@ -116,11 +116,11 @@ export const getSavedItems = async (req, res) => {
     }
 
     res.status(200).json({
-      success: true,
-      savedJobs: user.savedJobs,
-      savedInterviewQuestion: user.savedInterviewQuestion,
-      savedRoleQuestion: user.savedRoleQuestion
-    });
+  success: true,
+  savedJobs: user.savedJobs || [],
+  savedInterviewQuestions: user.savedInterviewQuestion || [],
+  savedRoleQuestions: user.savedRoleQuestion || []
+});
 
   } catch (error) {
     res.status(500).json({
